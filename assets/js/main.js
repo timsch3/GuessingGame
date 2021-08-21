@@ -5,6 +5,7 @@ let customRoundsInput = document.getElementById('customRoundsInput')
 let optionsWrapper = document.getElementById('optionsWrapper')
 let roundOutput = document.getElementById('roundOutput')
 let resultOutput = document.getElementById('resultOutput')
+let won = false
 
 function showCustomRounds() {
     document.getElementById('radioCustomRounds').checked ? customRoundsInput.style.display = 'block' : customRoundsInput.style.display = 'none'
@@ -35,7 +36,9 @@ function takeGuess() {
         }
         if (input == randomNumber) {
             round++
-            resultOutput.innerHTML += 'Round ' + round + ' – ' + "That's the right number, you win! <a href='index.html'>Play again!</a>"
+            resultOutput.innerHTML += 'Round ' + round + ' – ' + "Congratulations, " + input + " is the right number, you win! <a href='index.html'>Play again!</a>"
+            document.getElementById('guessButton').style.display = 'none'
+            won = true
         }
         else if (input != randomNumber) {
             round++
@@ -47,7 +50,7 @@ function takeGuess() {
             }
         }
         roundOutput.innerHTML = round + ' / ' + totalRounds
-        if (round == totalRounds) {
+        if (round == totalRounds && !won) {
             resultOutput.innerHTML += "That's " + totalRounds + " rounds, you lose! The number was " + randomNumber + ". <a href='index.html'>Play again!</a>"
             document.getElementById('guessButton').style.display = 'none'
         }
