@@ -32,6 +32,7 @@ function takeGuess() {
         if (round == 0) {
             randomNumber = getRandomIntInclusive(1, 100)
             optionsWrapper.style.display = 'none'
+            customRoundsInput.style.display = 'none'
             roundOutput.style.display = 'block'
         }
         if (input == randomNumber) {
