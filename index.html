@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game 1 – 100</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <h1>
+        Number Guessing Game 1 – 100
+    </h1>
+    <div>
+        <form id='option' onsubmit="return false">
+            <div>
+                <h2>
+                    In how many rounds you think you can guess the number?
+                </h2>
+            </div>
+            <div id="optionsWrapper">
+                <div>
+                    <input type="radio" name="rounds" id="radio4Rounds" onchange="setTotalRounds(), showCustomRounds()"
+                        checked>
+                    <label for="radio4Rounds">4</label>
+                </div>
+                <div>
+                    <input type="radio" name="rounds" id="radio5Rounds" onchange="setTotalRounds(), showCustomRounds()">
+                    <label for="radio5Rounds">5</label>
+                </div>
+                <div>
+                    <input type="radio" name="rounds" id="radio6Rounds" onchange="setTotalRounds(), showCustomRounds()">
+                    <label for="radio6Rounds">6</label>
+                </div>
+                <div>
+                    <input type="radio" name="rounds" id="radioCustomRounds" onchange="showCustomRounds()">
+                    <label for="radioCustomRounds">custom</label>
+                </div>
+            </div>
+            <input type="number" id="customRoundsInput" onchange="setTotalRounds()">
+            <p id="roundOutput"></p>
+        </form>
+        <form id="game" onsubmit="return false">
+            <input type="number" id="guessInput">
+            <input type="button" value="guess" id="guessButton" onclick="takeGuess()">
+        </form>
+        <p id="resultOutput"></p>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
